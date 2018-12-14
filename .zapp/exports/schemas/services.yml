@@ -1,0 +1,16 @@
+type: object
+additionalProperties:
+  type: object
+  properties:
+    build:
+      type: string
+    ports:
+      type: array
+    volumes:
+      type: array
+    links:
+      type: array
+    container_name:
+      type: string
+    image:
+      type: string

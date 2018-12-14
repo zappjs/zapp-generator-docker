@@ -1,0 +1,21 @@
+Dockerfile-<key>:
+  engine: handlebars
+  template: dockerfile
+  filename:
+    engine: handlebars
+    template: 'Dockerfile{{#ne name ''base''}}-{{{name}}}{{/ne}}'
+    mapping:
+      name: '@key'
+  mapping:
+    from: ./from
+    copy: ./copy
+    run: ./run
+    cmd: ./cmd
+    workdir: ./workdir
+    env: ./env
+  iterator: /images
+docker-compose.yml:
+  engine: yaml
+  mapping:
+    version: '3'
+    services: /services

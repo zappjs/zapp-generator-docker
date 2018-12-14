@@ -1,0 +1,6 @@
+base:
+  copy:
+    from: .
+    to: /code
+  env:
+    PATH: './node_modules/.bin:$PATH'

@@ -1,0 +1,27 @@
+type: object
+additionalProperties:
+  type: object
+  properties:
+    from:
+      type: string
+    copy:
+      type: object
+      properties:
+        from:
+          type: string
+          required: true
+        to:
+          type: string
+          required: true
+    run:
+      type: string
+    cmd:
+      type: string
+    workdir:
+      type: string
+    env:
+      type: object
+      additionalProperties:
+        type: string
+    expose:
+      type: string

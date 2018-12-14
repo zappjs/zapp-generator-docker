@@ -1,0 +1,172 @@
+files:
+  /:
+    keys:
+      - docker-compose.yml
+      - - Dockerfile-<key>
+  /docker-compose.yml:
+    keys:
+      - engine
+      - iterator
+      - mapping
+  /docker-compose.yml/mapping/services: {}
+  /docker-compose.yml/mapping:
+    keys:
+      - docker-compose.yml
+      - Dockerfile
+  /docker-compose.yml/mapping/version: {}
+  /Dockerfile-%3Ckey%3E:
+    keys:
+      - Dockerfile-<key>
+      - docker-compose.yml
+  /Dockerfile-%3Ckey%3E/filename:
+    keys:
+      - engine
+      - template
+      - mapping
+  /Dockerfile-%3Ckey%3E/mapping/from: {}
+  /Dockerfile-%3Ckey%3E/mapping:
+    keys:
+      - Dockerfile-<key>
+      - docker-compose.yml
+  /Dockerfile-%3Ckey%3E/mapping/copy: {}
+  /Dockerfile-%3Ckey%3E/mapping/run: {}
+  /Dockerfile-%3Ckey%3E/mapping/cmd: {}
+  /Dockerfile-%3Ckey%3E/mapping/workdir: {}
+  /Dockerfile-%3Ckey%3E/mapping/env: {}
+  /Dockerfile-<key>/mapping:
+    keys:
+      - from
+      - copy
+      - run
+      - cmd
+      - workdir
+      - env
+      - name
+  /Dockerfile-%3Ckey%3E/iterator: {}
+  /Dockerfile-%3Ckey%3E/filename/mapping:
+    keys:
+      - name
+imports:
+  /zappjs/handlebars: {}
+  /zappjs:
+    keys:
+      - zappjs
+  /zappjs/yaml: {}
+templates:
+  /dockerfile:
+    keys:
+      - dockerfile
+  /:
+    keys:
+      - dockerfile
+  /dockerfile/template:
+    type: code
+    mode: handlebars
+schemas:
+  /:
+    keys:
+      - - images
+      - services
+  /services:
+    keys:
+      - image
+      - services
+  /services/type: {}
+  /services/additionalProperties:
+    keys:
+      - image
+      - services
+  /services/additionalProperties/type: {}
+  /services/additionalProperties/properties:
+    keys:
+      - image
+      - services
+  /services/additionalProperties/properties/build:
+    keys:
+      - image
+      - services
+  /services/additionalProperties/properties/build/type: {}
+  /services/additionalProperties/properties/ports:
+    keys:
+      - image
+      - services
+  /services/additionalProperties/properties/ports/type: {}
+  /services/additionalProperties/properties/volumes:
+    keys:
+      - image
+      - services
+  /services/additionalProperties/properties/volumes/type: {}
+  /services/additionalProperties/properties/links:
+    keys:
+      - image
+      - services
+  /services/additionalProperties/properties/links/type: {}
+  /services/additionalProperties/properties/image:
+    keys:
+      - image
+      - services
+  /services/additionalProperties/properties/image/type: {}
+  /image:
+    keys:
+      - type
+      - additionalProperties
+      - properties
+  /image/properties/cmd:
+    keys:
+      - image
+      - services
+  /image/properties:
+    keys:
+      - image
+      - services
+  /image/properties/cmd/type: {}
+  /image/properties/workdir:
+    keys:
+      - image
+      - services
+  /image/properties/workdir/type: {}
+  /image/properties/env:
+    keys:
+      - image
+      - services
+  /image/properties/env/type: {}
+  /image/properties/env/additionalProperties:
+    keys:
+      - image
+      - services
+  /image/properties/env/additionalProperties/type: {}
+  /image/properties/expose:
+    keys:
+      - image
+      - services
+  /image/properties/expose/type: {}
+  /services/additionalProperties/properties/container_name:
+    keys:
+      - image
+      - services
+  /services/additionalProperties/properties/container_name/type: {}
+  /images:
+    keys:
+      - type
+      - additionalProperties
+      - properties
+  /images/additionalProperties:
+    keys:
+      - type
+      - properties
+  /images/additionalProperties/type: {}
+specs:
+  /:
+    keys:
+      - images
+      - base
+  /images:
+    keys:
+      - base
+      - copy
+      - env
+  /images/base:
+    keys:
+      - test
+      - copy
+      - env

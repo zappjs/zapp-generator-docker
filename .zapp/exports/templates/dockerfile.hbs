@@ -1,0 +1,23 @@
+{{#some from image}}
+FROM {{#if from}}{{{from}}}{{else}}{{{image}}}{{/if}}
+{{/some}}
+{{#if env}}
+{{#each env}}
+ENV {{{@key}}} {{{this}}}
+{{/each}}
+{{/if}}
+{{#if copy}}
+COPY {{{copy.from}}} {{{copy.to}}}
+{{/if}}
+{{#if workdir}}
+WORKDIR {{{workdir}}}
+{{/if}}
+{{#if run}}
+RUN {{{run}}}
+{{/if}}
+{{#if cmd}}
+CMD {{{cmd}}}
+{{/if}}
+{{#if expose}}
+EXPOSE {{{expose}}}
+{{/if}}
